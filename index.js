@@ -23,7 +23,7 @@ function gulpChonmage(config) {
             var rootPath = config.rootPath || path.dirname(templatePath);
             var templateKey = config.tempateKey ? config.templateKey(file.path) : path.basename(file.path);
             var tsFile = chonmage.createTsFileForBrowser(
-                chonmage.compile(file.contents, rootPath),
+                chonmage.compile(file.contents.toString(), rootPath),
                 templateKey
             )
             file.contents = new Buffer(tsFile);
